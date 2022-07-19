@@ -15,6 +15,14 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true })
     app.use(express.urlencoded({ extended: true }))
 
     app.get('/', (req, res) => {
+      quotesCollection
+        .find()
+        .toArray()
+        .then((results) => {
+          console.log(results)
+        })
+        .catch((error) => console.error(error))
+
       res.sendFile(__dirname + '/index.html')
     })
 
