@@ -52,7 +52,9 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true })
           },
           { upsert: true }
         )
-        .then((result) => console.log(result))
+        .then((result) => {
+          res.json('success')
+        })
         .catch((error) => console.error(error))
     })
 
